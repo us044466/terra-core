@@ -21,9 +21,7 @@ const MenuExamples = () => (
     <Markdown id="readme" src={ReadMe} />
     <h2>Menu</h2>
     <PropsTable id="props" src={MenuSrc} />
-    <h2>Menu Item</h2>
-    <h2>Menu Group</h2>
-    <h2>Basic Menu</h2>
+    <h2>Menu</h2>
     <BasicMenu />
   </div>
 );

@@ -11,7 +11,15 @@ const group = (
 
 const buttonViews = [
   <Menu.Item text="Default 1" key="1" />,
-  <Menu.Item text="Default 2" key="2" />,
+  <Menu.Item
+    text="Default 2"
+    key="2"
+    subMenuItems={[
+      <Menu.Item text="Default 2.1" key="2.1" />,
+      <Menu.Item text="Default 2.2" key="2.2" />,
+      <Menu.Item text="Default 2.3" key="2.3" />,
+    ]}
+  />,
   <Menu.Item text="Default 3" key="3" />,
   <Menu.Item text="Default 4" key="4" />,
   <Menu.Item text="Default 5" key="5" />,

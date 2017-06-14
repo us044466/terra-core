@@ -10,7 +10,6 @@ import BadgeExamples from './examples/badge/Index';
 import BaseExamples from './examples/base/Index';
 import ButtonExamples from './examples/button/Index';
 import ButtonGroupExamples from './examples/button-group/Index';
-import CollapsibleMenuView from './examples/collapsible-menu-view/Index';
 import ContentContainerExamples from './examples/content-container/Index';
 import DatePickerExamples from './examples/date-picker/Index';
 import DemographicsBannerExamples from './examples/demographics-banner/Index';
@@ -20,15 +19,15 @@ import I18nExamples from './examples/i18n/Index';
 import IconExamples from './examples/icon/Index';
 import ImageExamples from './examples/image/Index';
 import ListExamples from './examples/list/Index';
-import MenuExamples from './examples/menu/Index';
 import ModalExamples from './examples/modal/Index';
-import PopupPresenterExamples from './examples/popup-presenter/Index';
+import PopupExamples from './examples/popup/Index';
 import ProgressBarExamples from './examples/progress-bar/Index';
 import ResponsiveElementExamples from './examples/responsive-element/Index';
 import SearchFieldExamples from './examples/search-field/Index';
 import SlidePanelExamples from './examples/slide-panel/Index';
 import StatusExamples from './examples/status/Index';
 import TableExamples from './examples/table/Index';
+import TimeInputExamples from './examples/time-input/Index';
 
 // Test Routes
 /* eslint-disable import/first */
@@ -48,7 +47,6 @@ import ListTestRoutes from 'terra-list/tests/nightwatch/list/ListTestRoutes';
 import ListItemTestRoutes from 'terra-list/tests/nightwatch/list-item/ListItemTestRoutes';
 import SingleSelectListTestRoutes from 'terra-list/tests/nightwatch/single-select-list/SingleSelectListTestRoutes';
 import MultiSelectListTestRoutes from 'terra-list/tests/nightwatch/multi-select-list/MultiSelectListTestRoutes';
-import PopupPresenterTestRoutes from 'terra-popup-presenter/tests/nightwatch/PopupPresenterTestRoutes';
 import TableTestRoutes from 'terra-table/tests/nightwatch/TableTestRoutes';
 import ModalTestRoutes from 'terra-modal/tests/nightwatch/ModalTestRoutes';
 import StatusTestRoutes from 'terra-status/tests/nightwatch/StatusTestRoutes';
@@ -56,7 +54,10 @@ import GridTestRoutes from 'terra-grid/tests/nightwatch/GridTestRoutes';
 import ProgressBarTestRoutes from 'terra-progress-bar/tests/nightwatch/ProgressBarTestRoutes';
 import IconTestRoutes from 'terra-icon/tests/nightwatch/IconTestRoutes';
 import SearchFieldTestRoutes from 'terra-search-field/tests/nightwatch/SearchFieldTestRoutes';
+import PopupTestRoutes from 'terra-popup/tests/nightwatch/PopupTestRoutes';
 import TestLinks from './TestLinks';
+import TimeInputTestRoutes from 'terra-time-input/tests/nightwatch/TimeInputTestRoutes';
+
 
 // Remove eslint-disable as these pacakges are published
 /* eslint-disable import/no-extraneous-dependencies */
@@ -74,7 +75,6 @@ ReactDOM.render((
       <Route path="base" component={BaseExamples} />
       <Route path="button" component={ButtonExamples} />
       <Route path="button-group" component={ButtonGroupExamples} />
-      <Route path="collapsible-menu-view" component={CollapsibleMenuView} />
       <Route path="content-container" component={ContentContainerExamples} />
       <Route path="datepicker" component={DatePickerExamples} />
       <Route path="demographics-banner" component={DemographicsBannerExamples} />
@@ -84,15 +84,15 @@ ReactDOM.render((
       <Route path="icon" component={IconExamples} />
       <Route path="image" component={ImageExamples} />
       <Route path="list" component={ListExamples} />
-      <Route path="menu" component={MenuExamples} />
       <Route path="modal" component={ModalExamples} />
-      <Route path="popup-presenter" component={PopupPresenterExamples} />
+      <Route path="popup" component={PopupExamples} />
       <Route path="progress-bar" component={ProgressBarExamples} />
       <Route path="responsive-element" component={ResponsiveElementExamples} />
       <Route path="search-field" component={SearchFieldExamples} />
       <Route path="slide-panel" component={SlidePanelExamples} />
       <Route path="status" component={StatusExamples} />
       <Route path="table" component={TableExamples} />
+      <Route path="time-input" component={TimeInputExamples} />
     </Route>
     <Route path="/tests" component={TestLinks} />
     {ArrangeTestRoutes}
@@ -114,11 +114,12 @@ ReactDOM.render((
     {MultiSelectListTestRoutes}
     {StatusTestRoutes}
     {TableTestRoutes}
+    {TimeInputTestRoutes}
     {ModalTestRoutes}
-    {PopupPresenterTestRoutes}
     {ProgressBarTestRoutes}
     {GridTestRoutes}
     {SearchFieldTestRoutes}
+    {PopupTestRoutes}
     {FormTestRoutes}
   </Router>
 ), document.getElementById('root'));

@@ -25,11 +25,12 @@ const TestLinks = () => (
       <li><Link to="/tests/multi-select-list-tests">MultiSelectList Tests</Link></li>
       <li><Link to="/tests/status-tests">Status Tests</Link></li>
       <li><Link to="/tests/table-tests">Table Tests</Link></li>
+      <li><Link to="/tests/time-input-tests">Time Input Tests</Link></li>
       <li><Link to="/tests/modal-tests">Modal Tests</Link></li>
-      <li><Link to="/tests/popup-presenter-tests">Popup Presenter Tests</Link></li>
       <li><Link to="/tests/progress-bar-tests">ProgressBar Tests</Link></li>
       <li><Link to="/tests/grid-tests">Grid Tests</Link></li>
       <li><Link to="/tests/search-field-tests">Search Field</Link></li>
+      <li><Link to="/tests/popup-tests">Popup Tests</Link></li>
     </ul>
   </div>
 );

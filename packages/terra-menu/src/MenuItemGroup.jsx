@@ -23,6 +23,7 @@ const MenuItemGroup = ({ isSelectable, isButtonStyle, children, ...customProps }
     React.cloneElement(child, {
       isButtonStyle,
       isGroupItem: true,
+      isSelectable: { isSelectable },
     })
   ));
 

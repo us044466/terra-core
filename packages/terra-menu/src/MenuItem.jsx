@@ -27,6 +27,8 @@ const propTypes = {
    **/
   isSelected: PropTypes.bool,
 
+  isSelectable: PropTypes.bool,
+
   /**
    * List of Menu.Items to display in a submenu when this item is selected.
    **/
@@ -47,6 +49,7 @@ const defaultProps = {
   text: '',
   isReversed: false,
   isSelected: false,
+  isSelectable: false,
   isButtonStyle: false,
   isGroupItem: false,
   subMenuItems: [],
@@ -57,6 +60,7 @@ const MenuItem = ({
   icon,
   isReversed,
   isSelected,
+  isSelectable,
   isButtonStyle,
   isGroupItem,
   subMenuItems,
@@ -77,7 +81,8 @@ const MenuItem = ({
         {...attributes}
         hasChevron={subMenuItems.length > 0}
         content={<div>{text}</div>}
-        isSelectable={subMenuItems.length > 0 || isGroupItem}
+        isSelectable={subMenuItems.length > 0 || isSelectable || attributes.onClick}
+        isSelected={isSelected}
       />
     );
   }
