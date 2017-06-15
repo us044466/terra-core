@@ -45,6 +45,7 @@
     "terra-image": "^0.4.0",
     "terra-list": "^0.6.0",
     "terra-markdown": "^0.6.0",
+    "terra-menu": "^0.x",
     "terra-mixins": "^1.3.0",
     "terra-modal": "^0.3.0",
     "terra-popup": "^0.x",

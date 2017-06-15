@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import PopupPresenter from 'terra-popup-presenter';
+import Popup from 'terra-popup';
 import 'terra-base/lib/baseStyles';
 import MenuItem from './MenuItem';
 import MenuItemGroup from './MenuItemGroup';
@@ -107,14 +107,14 @@ class Menu extends React.Component {
 
     return (
       <div {...attributes}>
-        <PopupPresenter
+        <Popup
           isOpen={this.state.isOpen}
           targetRef={this.getButtonNode}
           onRequestClose={this.handleRequestClose}
           isArrowDisplayed
         >
           {this.state.stack[this.state.stack.length - 1]}
-        </PopupPresenter>
+        </Popup>
         <div ref={this.setButtonNode}>
           {targetClone}
         </div>
