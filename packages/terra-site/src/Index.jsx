@@ -19,9 +19,7 @@ import I18nExamples from './examples/i18n/Index';
 import IconExamples from './examples/icon/Index';
 import ImageExamples from './examples/image/Index';
 import ListExamples from './examples/list/Index';
-import MenuExamples from './examples/menu/Index';
 import ModalExamples from './examples/modal/Index';
-import PopupExamples from './examples/popup/Index';
 import ProgressBarExamples from './examples/progress-bar/Index';
 import ResponsiveElementExamples from './examples/responsive-element/Index';
 import SearchFieldExamples from './examples/search-field/Index';
@@ -40,31 +38,24 @@ import ButtonGroupTestRoutes from 'terra-button-group/tests/nightwatch/ButtonGro
 import ContentContainerTestRoutes from 'terra-content-container/tests/nightwatch/ContentContainerTestRoutes';
 import DatePickerTestRoutes from 'terra-date-picker/tests/nightwatch/DatePickerTestRoutes';
 import DemographicsBannerTestRoutes from 'terra-demographics-banner/tests/nightwatch/DemographicsBannerTestRoutes';
+import FormTestRoutes from 'terra-form/tests/nightwatch/FormTestRoutes';
+import GridTestRoutes from 'terra-grid/tests/nightwatch/GridTestRoutes';
 import I18nTestRoutes from 'terra-i18n/tests/nightwatch/I18nTestRoutes';
+import IconTestRoutes from 'terra-icon/tests/nightwatch/IconTestRoutes';
 import ImageTestRoutes from 'terra-image/tests/nightwatch/ImageTestRoutes';
-import ResponsiveElementTestRoutes from 'terra-responsive-element/tests/nightwatch/ResponsiveElementTestRoutes';
-import SlidePanelTestRoutes from 'terra-slide-panel/tests/nightwatch/SlidePanelTestRoutes';
 import ListTestRoutes from 'terra-list/tests/nightwatch/list/ListTestRoutes';
 import ListItemTestRoutes from 'terra-list/tests/nightwatch/list-item/ListItemTestRoutes';
 import SingleSelectListTestRoutes from 'terra-list/tests/nightwatch/single-select-list/SingleSelectListTestRoutes';
 import MultiSelectListTestRoutes from 'terra-list/tests/nightwatch/multi-select-list/MultiSelectListTestRoutes';
-import TableTestRoutes from 'terra-table/tests/nightwatch/TableTestRoutes';
 import ModalTestRoutes from 'terra-modal/tests/nightwatch/ModalTestRoutes';
-import StatusTestRoutes from 'terra-status/tests/nightwatch/StatusTestRoutes';
-import GridTestRoutes from 'terra-grid/tests/nightwatch/GridTestRoutes';
 import ProgressBarTestRoutes from 'terra-progress-bar/tests/nightwatch/ProgressBarTestRoutes';
-import IconTestRoutes from 'terra-icon/tests/nightwatch/IconTestRoutes';
+import ResponsiveElementTestRoutes from 'terra-responsive-element/tests/nightwatch/ResponsiveElementTestRoutes';
 import SearchFieldTestRoutes from 'terra-search-field/tests/nightwatch/SearchFieldTestRoutes';
-import PopupTestRoutes from 'terra-popup/tests/nightwatch/PopupTestRoutes';
-import TestLinks from './TestLinks';
+import SlidePanelTestRoutes from 'terra-slide-panel/tests/nightwatch/SlidePanelTestRoutes';
+import StatusTestRoutes from 'terra-status/tests/nightwatch/StatusTestRoutes';
+import TableTestRoutes from 'terra-table/tests/nightwatch/TableTestRoutes';
 import TimeInputTestRoutes from 'terra-time-input/tests/nightwatch/TimeInputTestRoutes';
-
-
-// Remove eslint-disable as these pacakges are published
-/* eslint-disable import/no-extraneous-dependencies */
-import FormTestRoutes from 'terra-form/tests/nightwatch/FormTestRoutes';
-/* eslint-enable import/no-extraneous-dependencies */
-/* eslint-enable import/first */
+import TestLinks from './TestLinks';
 
 ReactDOM.render((
   <Router history={hashHistory}>
@@ -85,9 +76,7 @@ ReactDOM.render((
       <Route path="icon" component={IconExamples} />
       <Route path="image" component={ImageExamples} />
       <Route path="list" component={ListExamples} />
-      <Route path="menu" component={MenuExamples} />
       <Route path="modal" component={ModalExamples} />
-      <Route path="popup" component={PopupExamples} />
       <Route path="progress-bar" component={ProgressBarExamples} />
       <Route path="responsive-element" component={ResponsiveElementExamples} />
       <Route path="search-field" component={SearchFieldExamples} />
@@ -120,8 +109,8 @@ ReactDOM.render((
     {ModalTestRoutes}
     {ProgressBarTestRoutes}
     {GridTestRoutes}
+    {IconTestRoutes}
     {SearchFieldTestRoutes}
-    {PopupTestRoutes}
     {FormTestRoutes}
   </Router>
 ), document.getElementById('root'));
