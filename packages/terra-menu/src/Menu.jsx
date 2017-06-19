@@ -115,7 +115,7 @@ class Menu extends React.Component {
         >
           {this.state.stack[this.state.stack.length - 1]}
         </Popup>
-        <div ref={this.setButtonNode}>
+        <div style={{ display: 'inline-block' }} ref={this.setButtonNode}>
           {targetClone}
         </div>
       </div>
