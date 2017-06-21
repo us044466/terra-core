@@ -9,42 +9,42 @@ import './Menu.scss';
 
 const propTypes = {
   /**
-   * Bounding container for the popup, will use window if no value provided.
-   */
-  boundingRef: PropTypes.func,
-  /**
-   * The children to be displayed as content within the popup.
+   * List of Menu.Items/Menu.ItemGroups to be displayed as content within the Menu.
    */
   children: PropTypes.node.isRequired,
+  /**
+   * Callback function indicating a close condition was met, should be combined with isOpen for state management.
+   */
+  onRequestClose: PropTypes.func.isRequired,
+  /**
+   * Target element for the menu to anchor to.
+   */
+  targetRef: PropTypes.func.isRequired,
+  /**
+   * Bounding container for the menu, will use window if no value provided.
+   */
+  boundingRef: PropTypes.func,
   /**
    * CSS classnames that are append to the arrow.
    */
   classNameArrow: PropTypes.string,
   /**
-   * CSS classnames that are append to the popup content inner.
+   * CSS classnames that are append to the menu content inner.
    */
   classNameContent: PropTypes.string,
   /**
    * CSS classnames that are append to the overlay.
    */
   classNameOverlay: PropTypes.string,
-
   /**
-   * Should the popup be presented as open.
+   * Should the menu be presented as open.
    */
   isOpen: PropTypes.bool,
-  /**
-   * Callback function indicating a close condition was met, should be combined with isOpen for state management.
-   */
-  onRequestClose: PropTypes.func.isRequired,
-  /**
-   * Target element for the popup to anchor to.
-   */
-  targetRef: PropTypes.func.isRequired,
 };
 
 const defaultProps = {
   children: [],
+  isOpen: false,
 };
 
 class Menu extends React.Component {
