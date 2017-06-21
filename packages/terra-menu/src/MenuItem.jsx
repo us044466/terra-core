@@ -28,10 +28,8 @@ const propTypes = {
 
 const defaultProps = {
   text: '',
-  isReversed: false,
   isSelected: false,
   isSelectable: false,
-  isButtonStyle: false,
   subMenuItems: [],
 };
 

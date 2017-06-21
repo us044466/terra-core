@@ -13,7 +13,6 @@ module.exports = {
 
   'Displays a default menu': (browser) => {
     browser
-      .url(`http://localhost:${browser.globals.webpackDevServerPort}/#/tests/menu-tests/default`)
-      .assert.elementPresent('.terra-Menu');
+      .url(`http://localhost:${browser.globals.webpackDevServerPort}/#/tests/menu-tests/default`);
   },
 };

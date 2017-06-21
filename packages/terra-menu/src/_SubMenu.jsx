@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from 'terra-button';
-import List from 'terra-list';
+import SingleSelectList from 'terra-list/lib/SingleSelectList';
 import IconLeft from 'terra-icon/lib/icon/IconLeft';
 
 const propTypes = {
@@ -19,9 +19,9 @@ const SubMenu = (props) => {
   return (
     <div>
       {header}
-      <List>
+      <SingleSelectList>
         {props.children}
-      </List>
+      </SingleSelectList>
     </div>
   );
 };

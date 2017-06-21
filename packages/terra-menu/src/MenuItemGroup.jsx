@@ -1,48 +1,45 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ButtonGroup from 'terra-button-group';
 import SingleSelectList from 'terra-list/lib/SingleSelectList';
 import 'terra-base/lib/baseStyles';
 import './MenuItemGroup.scss';
 
 const propTypes = {
+  /**
+   * Indicates if the group should have toggle-style selection
+  **/
   isSelectable: PropTypes.bool,
-  isButtonStyle: PropTypes.bool,
-  children: PropTypes.array,
+
+  /**
+   * Menu.Items to be grouped together
+  **/
+  children: PropTypes.node.isRequired,
 };
 
 const defaultProps = {
   isSelectable: false,
-  isButtonStyle: false,
   children: [],
 };
 
-const MenuItemGroup = ({ isSelectable, isButtonStyle, children, ...customProps }) => {
+const MenuItemGroup = ({ isSelectable, children, ...customProps }) => {
   const attributes = Object.assign({}, customProps);
   const items = children.map(child => (
     React.cloneElement(child, {
-      isButtonStyle,
       isSelectable,
-      isGroupItem: true,
     })
   ));
 
-  let group;
-  if (isButtonStyle) {
-    group = (
-      <ButtonGroup {...attributes} isSelectable={isSelectable}>
-        {items}
-      </ButtonGroup>
-    );
-  } else {
-    group = (
-      <SingleSelectList {...attributes} >
-        {items}
-      </SingleSelectList>
-    );
-  }
-
-  return group;
+  return (
+    <SingleSelectList.Item
+      {...attributes}
+      isSelectable={false}
+      content={(
+        <SingleSelectList>
+          {items}
+        </SingleSelectList>
+      )}
+    />
+  );
 };
 
 

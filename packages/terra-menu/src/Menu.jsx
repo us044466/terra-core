@@ -2,10 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Popup from 'terra-popup';
 import 'terra-base/lib/baseStyles';
-import MenuToggle from './MenuToggle';
 import MenuItem from './MenuItem';
 import MenuItemGroup from './MenuItemGroup';
-import SubMenu from './SubMenu';
+import SubMenu from './_SubMenu';
 import './Menu.scss';
 
 const propTypes = {
@@ -31,10 +30,6 @@ const propTypes = {
   classNameOverlay: PropTypes.string,
 
   /**
-   * Should the default behavior, that inserts a header when constraints are breached, be disabled.
-   */
-  isHeaderDisabled: PropTypes.bool,
-  /**
    * Should the popup be presented as open.
    */
   isOpen: PropTypes.bool,
@@ -55,7 +50,6 @@ const defaultProps = {
 class Menu extends React.Component {
   constructor(props) {
     super(props);
-    this.handleOnClick = this.handleOnClick.bind(this);
     this.handleRequestClose = this.handleRequestClose.bind(this);
     this.wrapOnRequestClose = this.wrapOnRequestClose.bind(this);
     this.handleItemSelection = this.handleItemSelection.bind(this);
@@ -82,16 +76,10 @@ class Menu extends React.Component {
     );
 
     return {
-      isOpen: false,
       stack: [initialMenu],
     };
   }
 
-  handleOnClick() {
-    if (this.props.children) {
-      this.setState({ isOpen: true });
-    }
-  }
 
   handleRequestClose() {
     this.setState(this.getInitialState());
@@ -136,14 +124,31 @@ class Menu extends React.Component {
   }
 
   render() {
-    const { onRequestClose, children, ...customProps } = this.props;
+    const {
+      boundingRef,
+      classNameArrow,
+      classNameContent,
+      classNameOverlay,
+      onRequestClose,
+      isOpen,
+      children,
+      targetRef,
+      ...customProps
+    } = this.props;
     const attributes = Object.assign({}, customProps);
 
     return (
       <Popup
         {...attributes}
-        onRequestClose={this.wrapOnRequestClose}
+        boundingRef={boundingRef}
         isArrowDisplayed
+        contentAttachment="bottom center"
+        classNameArrow={classNameArrow}
+        classNameContent={classNameContent}
+        classNameOverlay={classNameOverlay}
+        isOpen={isOpen}
+        onRequestClose={this.wrapOnRequestClose}
+        targetRef={targetRef}
       >
         {this.state.stack[this.state.stack.length - 1]}
       </Popup>
@@ -153,7 +158,6 @@ class Menu extends React.Component {
 
 Menu.propTypes = propTypes;
 Menu.defaultProps = defaultProps;
-Menu.Toggle = MenuToggle;
 Menu.Item = MenuItem;
 Menu.ItemGroup = MenuItemGroup;
 
