@@ -12,6 +12,7 @@ const propTypes = {
   classNameOverlay: PropTypes.string,
   closeOnOutsideClick: PropTypes.bool,
   onRequestClose: PropTypes.func.isRequired,
+  isFocused: PropTypes.bool,
   isFullscreen: PropTypes.bool,
   isScrollable: PropTypes.bool,
   role: PropTypes.string,
@@ -23,6 +24,7 @@ const defaultProps = {
   classNameModal: null,
   classNameOverlay: null,
   closeOnOutsideClick: true,
+  isFocused: false,
   isFullscreen: false,
   isScrollable: false,
   role: 'dialog',
@@ -39,6 +41,7 @@ class ModalContent extends React.Component {
         closeOnOutsideClick,
         onRequestClose,
         role,
+        isFocused,
         isFullscreen,
         isScrollable,
         ...customProps } = this.props;
@@ -52,21 +55,29 @@ class ModalContent extends React.Component {
     // Delete the closePortal prop that comes from react-portal.
     delete customProps.closePortal;
 
+    const overlay = (
+      <ModalOverlay
+        onClick={closeOnOutsideClick ? onRequestClose : null}
+        className={classNameOverlay}
+      />
+    );
+
+    const content = (
+      <div
+        tabIndex="0"
+        aria-label={ariaLabel}
+        className={modalClassName}
+        role={role}
+        {...customProps}
+      >
+        {children}
+      </div>
+    );
+
     return (
-      <FocusTrap>
-        <ModalOverlay
-          onClick={closeOnOutsideClick ? onRequestClose : null}
-          className={classNameOverlay}
-        />
-        <div
-          tabIndex="0"
-          aria-label={ariaLabel}
-          className={modalClassName}
-          role={role}
-          {...customProps}
-        >
-          {children}
-        </div>
+      <FocusTrap paused={!isFocused}>
+        {overlay}
+        {content}
       </FocusTrap>
     );
   }

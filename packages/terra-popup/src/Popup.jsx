@@ -297,6 +297,8 @@ class Popup extends React.Component {
         closeOnOutsideClick
         closeOnResize
         isHeaderDisabled={this.props.isHeaderDisabled}
+        onFocusGain={this.props.onFocusGain}
+        onFocusLoss={this.props.onFocusLoss}
         onRequestClose={this.props.onRequestClose}
         refCallback={this.setContentNode}
       >
@@ -317,6 +319,8 @@ class Popup extends React.Component {
       isArrowDisplayed,
       isHeaderDisabled,
       isOpen,
+      onFocusGain,
+      onFocusLoss,
       onRequestClose,
       targetRef,
       ...customProps

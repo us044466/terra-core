@@ -31,6 +31,7 @@ const propTypes = {
    * If set to true, the modal will close when a mouseclick is triggered outside the modal
    **/
   closeOnOutsideClick: PropTypes.bool,
+  isFocused: PropTypes.bool,
   /**
    * If set to true, the modal will be fullscreen on all breakpoint sizes
    **/
@@ -62,6 +63,7 @@ const defaultProps = {
   classNameOverlay: null,
   closeOnEsc: true,
   closeOnOutsideClick: true,
+  isFocused: false,
   isFullscreen: false,
   isOpen: false,
   isScrollable: false,
@@ -87,7 +89,7 @@ class Modal extends React.Component {
   }
 
   handleKeydown(e) {
-    if (e.keyCode === KEYCODES.ESCAPE && this.props.isOpen && this.props.closeOnEsc) {
+    if (e.keyCode === KEYCODES.ESCAPE && this.props.isOpen && this.props.closeOnEsc && this.props.isFocused) {
       this.props.onRequestClose();
     }
   }
@@ -100,6 +102,7 @@ class Modal extends React.Component {
           classNameOverlay,
           closeOnEsc,
           closeOnOutsideClick,
+          isFocused,
           isFullscreen,
           isOpen,
           isScrollable,
@@ -122,6 +125,7 @@ class Modal extends React.Component {
           classNameModal={classNameModal}
           classNameOverlay={classNameOverlay}
           role={role}
+          isFocused={isFocused}
           isFullscreen={isFullscreen}
           isScrollable={isScrollable}
           onRequestClose={onRequestClose}

@@ -171,15 +171,20 @@ class PopupContent extends React.Component {
     if (this.props.closeOnResize) {
       window.addEventListener('resize', this.handleResize);
     }
+    if (this.props.onFocusGain) {
+      this.props.onFocusGain();
+    }
   }
 
   componentWillUnmount() {
     if (this.props.closeOnEsc) {
       document.removeEventListener('keydown', this.handleKeydown);
     }
-
     if (this.props.closeOnResize) {
       window.removeEventListener('resize', this.handleResize);
+    }
+    if (this.props.onFocusLoss) {
+      this.props.onFocusLoss();
     }
   }
 
@@ -227,6 +232,8 @@ class PopupContent extends React.Component {
       contentWidth,
       contentWidthMax,
       isHeaderDisabled,
+      onFocusGain,
+      onFocusLoss,
       onRequestClose,
       refCallback,
       ...customProps
