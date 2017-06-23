@@ -49,6 +49,10 @@ class DatePickerInput extends React.Component {
   handleOnKeyDown(event) {
     if (this.props.onFocusLoss && (event.key === 'Enter' || event.key === 'Escape' || event.key === 'Tab')) {
       this.props.onFocusLoss(event);
+
+      if (event.key === 'Tab') {
+        event.preventDefault();
+      }
     }
   }
 
