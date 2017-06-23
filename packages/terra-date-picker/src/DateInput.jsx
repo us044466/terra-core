@@ -35,6 +35,45 @@ const propTypes = {
 
 // eslint-disable-next-line react/prefer-stateless-function
 class DatePickerInput extends React.Component {
+  constructor(props) {
+    super(props);
+    this.wrappedOnClick = this.wrappedOnClick.bind(this);
+  }
+
+  handleOnClick(event) {
+    if (this.props.onFocusGain) {
+      this.props.onFocusGain(event);
+    }
+  }
+
+  handleOnKeyDown(event) {
+    if (this.props.onFocusLoss && (event.key === 'Enter' || event.key === 'Escape' || event.key === 'Tab')) {
+      this.props.onFocusLoss(event);
+    }
+  }
+
+  wrappedOnClick() {
+    const initialOnClick = this.props.onClick;
+    return (event) => {
+      this.handleOnClick(event);
+
+      if (initialOnClick) {
+        initialOnClick(event);
+      }
+    };
+  }
+
+  wrappedOnKeyDown() {
+    const initialOnKeyDown = this.props.onKeyDown;
+    return (event) => {
+      this.handleOnKeyDown(event);
+
+      if (initialOnKeyDown) {
+        initialOnKeyDown(event);
+      }
+    };
+  }
+
   render() {
     return (
       (<div className="terra-DatePicker-customInput">
@@ -48,8 +87,8 @@ class DatePickerInput extends React.Component {
         />
         <Button
           className="terra-DatePicker-button"
-          onClick={this.props.onClick}
-          onKeyDown={this.props.onKeyDown}
+          onClick={this.wrappedOnClick()}
+          onKeyDown={this.wrappedOnKeyDown()}
           icon={Icon}
           type="button"
         />

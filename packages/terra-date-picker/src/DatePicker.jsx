@@ -85,6 +85,10 @@ class DatePicker extends React.Component {
       const dateString = date && date.isValid() ? date.format(this.state.dateFormat) : '';
       this.props.onChange(dateString);
     }
+
+    if (this.props.onFocusLoss) {
+      this.props.onFocusLoss;
+    }
   }
 
   render() {
@@ -96,6 +100,8 @@ class DatePicker extends React.Component {
       includeDates,
       maxDate,
       minDate,
+      onFocusGain,
+      onFocusLoss,
       isEndDateRange,
       isStartDateRange,
       selectedDate,
@@ -123,13 +129,15 @@ class DatePicker extends React.Component {
         {...customProps}
         selected={selectedMomentDate}
         onChange={this.handleChange}
-        customInput={<DateInput inputAttributes={inputAttributes} />}
+        customInput={<DateInput onFocusGain={onFocusGain} onFocusLoss={onFocusLoss} inputAttributes={inputAttributes} />}
         endDate={endMomentDate}
         excludeDates={exludeMomentDates}
         filterDate={filterDate}
         includeDates={includeMomentDates}
         maxDate={maxMomentDate}
         minDate={minMomentDate}
+        onClickOutside={onFocusLoss}
+        onSelect={onFocusLoss}
         selectsEnd={isEndDateRange}
         selectsStart={isStartDateRange}
         startDate={startMomentDate}
@@ -150,13 +158,15 @@ class DatePicker extends React.Component {
         {...customProps}
         selected={selectedMomentDate}
         onChange={this.handleChange}
-        customInput={<DateInput inputAttributes={inputAttributes} />}
+        customInput={<DateInput onFocusGain={onFocusGain} onFocusLoss={onFocusLoss} inputAttributes={inputAttributes} />}
         endDate={endMomentDate}
         excludeDates={exludeMomentDates}
         filterDate={filterDate}
         includeDates={includeMomentDates}
         maxDate={maxMomentDate}
         minDate={minMomentDate}
+        onClickOutside={onFocusLoss}
+        onSelect={onFocusLoss}
         selectsEnd={isEndDateRange}
         selectsStart={isStartDateRange}
         startDate={startMomentDate}

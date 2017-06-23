@@ -2,6 +2,7 @@ import React from 'react';
 import Modal from 'terra-modal';
 import Button from 'terra-button';
 import PopupHelper from './PopupHelper';
+import DatePickerOnChange from '../date-picker/DatePickerOnChange';
 
 class ModalIsOpen extends React.Component {
   constructor() {
@@ -57,7 +58,8 @@ class ModalIsOpen extends React.Component {
             <p />
             <br />
             <button onClick={this.handleCloseModal}>Close Modal</button>
-            <PopupHelper onFocusGain={this.handleRequestFocus} onFocusLoss={this.handleReleaseFocus}/>
+            <PopupHelper onFocusGain={this.handleRequestFocus} onFocusLoss={this.handleReleaseFocus} />
+            <DatePickerOnChange onFocusGain={this.handleRequestFocus} onFocusLoss={this.handleReleaseFocus} />
           </div>
         </Modal>
         <button onClick={this.handleOpenModal}>Open Modal</button>
