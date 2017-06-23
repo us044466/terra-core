@@ -110,6 +110,7 @@ class SingleSelectList extends React.Component {
       if (initialOnKeyDown) {
         initialOnKeyDown(event);
       }
+      event.preventDefault();
     };
   }
 

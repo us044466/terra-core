@@ -9,7 +9,7 @@ const propTypes = {
   onFocusLoss: PropTypes.func,
 };
 
-class PopupStandard extends React.Component {
+class PopupHelper extends React.Component {
   constructor(props) {
     super(props);
     this.handleButtonClick = this.handleButtonClick.bind(this);
@@ -58,4 +58,4 @@ class PopupStandard extends React.Component {
   }
 }
 
-export default PopupStandard;
+export default PopupHelper;
