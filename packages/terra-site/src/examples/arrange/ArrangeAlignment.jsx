@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Arrange from 'terra-arrange';
+import Arrange from 'terra-arrange/src/Arrange';
 import { ArrangeWrapper, alignLabels, alignOptions } from './examplesetup';
 
 const alignmentTypes = ['all', 'individual'];

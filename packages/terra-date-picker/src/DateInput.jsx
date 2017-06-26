@@ -5,6 +5,8 @@ import Button from 'terra-button';
 import IconCalendar from 'terra-icon/lib/icon/IconCalendar';
 import DateUtil from './DateUtil';
 
+import styles from './DatePicker.scss';
+
 const Icon = <IconCalendar />;
 
 const propTypes = {
@@ -65,7 +67,7 @@ class DatePickerInput extends React.Component {
         />
         <input
           {...this.props.inputAttributes} // TODO: When forms is available, this.props.inputAttributes should be passed to the attrs props in the TextField component (attrs={this.props.inputAttributes}) instead of destructuring the inputAttributes prop here.
-          className="terra-DatePicker-input"
+          className={styles.input}
           type="text"
           name={'terra-date-'.concat(this.props.name)}
           value={this.props.value}
@@ -73,7 +75,7 @@ class DatePickerInput extends React.Component {
           placeholder={this.props.placeholder}
         />
         <Button
-          className="terra-DatePicker-button"
+          className={styles.button}
           onClick={this.props.onClick}
           onKeyDown={this.props.onKeyDown}
           icon={Icon}

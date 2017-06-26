@@ -1,7 +1,7 @@
 import React from 'react';
 import Heading from 'terra-heading';
 import Text from 'terra-text';
-import Arrange from 'terra-arrange';
+import Arrange from 'terra-arrange/src/Arrange';
 
 const HeadingSizes = () => (
   <div>

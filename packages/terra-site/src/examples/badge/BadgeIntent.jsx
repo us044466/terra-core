@@ -1,5 +1,6 @@
 import React from 'react';
-import Badge from 'terra-badge';
+import Badge from 'terra-badge/src/Badge';
+import CustomBadge from './CustomBadge';
 
 const BadgeIntent = () => (
   <div>
@@ -16,6 +17,8 @@ const BadgeIntent = () => (
     <Badge intent="warning" text="Warning" />
     {' '}
     <Badge intent="info" text="Info" />
+    {' '}
+    <CustomBadge text="Custom" />
   </div>
 );
 

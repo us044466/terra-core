@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import 'terra-base/lib/baseStyles';
-import './Button.scss';
+import styles from './Button.scss';
 
 const propTypes = {
   /**
@@ -81,12 +81,12 @@ const Button = ({
   const buttonText = text ? <span className="terra-Button-text">{text}</span> : null;
 
   attributes.className = classNames([
-    'terra-Button',
-    `terra-Button--${variant}`,
+    styles.button,
+    styles[variant],
     { 'is-disabled': isDisabled },
-    { [`terra-Button--${size}`]: size },
-    { 'terra-Button--block': isBlock },
-    { 'terra-Button--compact': isCompact },
+    { [styles[size]]: size },
+    { [styles.block]: isBlock },
+    { [styles.compact]: isCompact },
     attributes.className,
   ]);
 

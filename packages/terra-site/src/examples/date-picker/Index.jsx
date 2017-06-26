@@ -2,7 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import PropsTable from 'terra-props-table';
 import Markdown from 'terra-markdown';
-import DatePicker from 'terra-date-picker';
+import DatePicker from 'terra-date-picker/src/DatePicker';
 import ReadMe from 'terra-date-picker/docs/README.md';
 import { version } from 'terra-date-picker/package.json';
 // Component Source

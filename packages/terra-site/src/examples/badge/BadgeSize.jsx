@@ -1,5 +1,5 @@
 import React from 'react';
-import Badge from 'terra-badge';
+import Badge from 'terra-badge/src/Badge';
 
 const BadgeSize = () => (
   <div>

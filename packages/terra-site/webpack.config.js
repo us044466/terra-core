@@ -9,6 +9,8 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const I18nAggregatorPlugin = require('terra-i18n-plugin');
 const i18nSupportedLocales = require('terra-i18n/lib/i18nSupportedLocales');
+const CustomProperties = require('postcss-custom-properties');
+const rtl = require('postcss-rtl');
 
 module.exports = {
   entry: {
@@ -28,12 +30,19 @@ module.exports = {
     {
       test: /\.(scss|css)$/,
       use: ExtractTextPlugin.extract({
-        fallback: 'style-loader',
+        fallback: 'style-loader?sourceMap',
         use: [{
           loader: 'css-loader',
+          options: {
+            sourceMap: true,
+            modules: false,
+            importLoaders: 1,
+            localIdentName: '[path]___[name]__[local]___[hash:base64:5]',
+          },
         }, {
           loader: 'postcss-loader',
           options: {
+            sourceMap: true,
             plugins() {
               return [
                 Autoprefixer({
@@ -45,12 +54,14 @@ module.exports = {
                     'iOS >= 8',
                   ],
                 }),
+                CustomProperties(),
+                rtl(),
               ];
             },
           },
         },
         {
-          loader: 'sass-loader',
+          loader: 'sass-loader?sourceMap',
         }],
       }),
     },

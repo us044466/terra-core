@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
-import Arrange from 'terra-arrange';
+import Arrange from 'terra-arrange/src/Arrange';
 import Status from '../../src/Status';
 
 const image = <img style={{ display: 'block' }} height="150" width="300" src="http://placehold.it/350x150" alt="placeholder" />;

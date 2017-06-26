@@ -1,12 +1,12 @@
 @import '~terra-mixins';
-@import '~react-datepicker/dist/react-datepicker.min';
+:global { @import '~react-datepicker/dist/react-datepicker.min'; }
 
-.terra-DatePicker {
+.datePicker {
   display: inline-block;
   min-width: 14.643em;
 }
 
-.terra-DatePicker-input {
+.input {
   @include terra-border-radius-start(0.286em);
   @include terra-margin-end(-0.071em);
   border: 0.071em solid #a7aaab;
@@ -23,7 +23,7 @@
   }
 }
 
-.terra-DatePicker-button {
+.button {
   @include terra-border-radius-start(0);
   @include terra-margin-start(-0.071em);
 }

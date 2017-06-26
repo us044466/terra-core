@@ -4,44 +4,52 @@
 // Arranged grouping of related content such as an icon and heading
 
 // Vertically aligns arrange content to the top by default
-.terra-Arrange {
-  display: flex;
-}
+:local {
+  .arrange {
+    display: flex;
+  }
 
-.terra-Arrange-fitStart,
-.terra-Arrange-fitEnd {
-  display: flex;
-}
+  .fill {
+    display: block;
+    flex: 1;
+    min-width: 0;
+    align-self: flex-start;
+  }
 
-// Makes sure terra-Arrange-fill expands to fill the remaining space of its parent container
-// Display set to ensure correct appreance if applied to inline elements like span
-.terra-Arrange-fill {
-  display: block;
-  flex: 1;
-  min-width: 0;
-}
+  .fill-center {
+    composes: fill;
+    align-self: center;
+  }
 
-// Styles specific to align items independently of each other
-.terra-Arrange-fitStart,
-.terra-Arrange-fitEnd,
-.terra-Arrange-fill {
-  align-self: flex-start;
-}
+  .fill-bottom {
+    composes: fill;
+    align-self: flex-end;
+  }
 
-.terra-Arrange-fitStart--center,
-.terra-Arrange-fitEnd--center,
-.terra-Arrange-fill--center {
-  align-self: center;
-}
+  .fill-stretch {
+    composes: fill;
+    align-self: stretch;
+  }
 
-.terra-Arrange-fitStart--bottom,
-.terra-Arrange-fitEnd--bottom,
-.terra-Arrange-fill--bottom {
-  align-self: flex-end;
-}
+  .fit {
+    display: flex;
+    align-self: flex-start;
+  }
 
-.terra-Arrange-fitStart--stretch,
-.terra-Arrange-fitEnd--stretch,
-.terra-Arrange-fill--stretch {
-  align-self: stretch;
+  .fit-center {
+    composes: fit;
+    align-self: center;
+
+  }
+
+  .fit-bottom {
+    composes: fit;
+    align-self: flex-end;
+
+  }
+
+  .fit-stretch {
+    composes: fit;
+    align-self: stretch;
+  }
 }

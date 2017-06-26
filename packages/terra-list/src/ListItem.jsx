@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import 'terra-base/lib/baseStyles';
-import Arrange from 'terra-arrange';
+import Arrange from 'terra-arrange/src/Arrange';
 import ChevronRight from 'terra-icon/lib/icon/IconChevronRight';
 import './ListItem.scss';
 

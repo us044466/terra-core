@@ -1,5 +1,5 @@
 import React from 'react';
-import Arrange from '../../lib/Arrange';
+import Arrange from '../../src/Arrange';
 import { ArrangeWrapper, IconWrapper, simpleText } from './examplesetup';
 
 const AlignedFitEndFillArrange = () => (

@@ -7,6 +7,7 @@ describe('Arrange', () => {
   const text = 'FIll text';
   const fill = <div>{text}</div>;
   // Snapshot Tests
+
   describe('default', () => {
     const arrange = <Arrange fitStart={fitStart} fill={fill} fitEnd={fitEnd} />;
 
@@ -76,45 +77,45 @@ describe('Arrange', () => {
     const arrange = <Arrange fitStart={fitStart} fitEnd={fitEnd} fill={fill} />;
     const wrapper = shallow(arrange);
     expect(wrapper.type()).toEqual('div');
-    expect(wrapper.childAt(0).hasClass('terra-Arrange-fitStart')).toEqual(true);
-    expect(wrapper.childAt(1).hasClass('terra-Arrange-fill')).toEqual(true);
-    expect(wrapper.childAt(2).hasClass('terra-Arrange-fitEnd')).toEqual(true);
+    expect(wrapper.childAt(0).prop('className')).toEqual('fit');
+    expect(wrapper.childAt(1).prop('className')).toEqual('fill');
+    expect(wrapper.childAt(2).prop('className')).toEqual('fit');
   });
 
   it('should have fit and fill with the required class when fitStart and fill set to top and stretch"', () => {
     const arrange = <Arrange fitStart={fitStart} fitEnd={fitEnd} fill={fill} alignFitStart="center" alignFill="stretch" />;
     const wrapper = shallow(arrange);
     expect(wrapper.type()).toEqual('div');
-    expect(wrapper.childAt(0).hasClass('terra-Arrange-fitStart--center')).toEqual(true);
-    expect(wrapper.childAt(1).hasClass('terra-Arrange-fill--stretch')).toEqual(true);
-    expect(wrapper.childAt(2).hasClass('terra-Arrange-fitEnd')).toEqual(true);
+    expect(wrapper.childAt(0).prop('className')).toEqual('fit-center');
+    expect(wrapper.childAt(1).prop('className')).toEqual('fill-stretch');
+    expect(wrapper.childAt(2).prop('className')).toEqual('fit');
   });
 
   it('should have fit and fill with the required class when fitStart, fitEnd and fill set to stretch, bottom and stretch"', () => {
     const arrange = <Arrange fitStart={fitStart} fitEnd={fitEnd} fill={fill} alignFitStart="stretch" alignFill="stretch" alignFitEnd="bottom" />;
     const wrapper = shallow(arrange);
     expect(wrapper.type()).toEqual('div');
-    expect(wrapper.childAt(0).hasClass('terra-Arrange-fitStart--stretch')).toEqual(true);
-    expect(wrapper.childAt(1).hasClass('terra-Arrange-fill--stretch')).toEqual(true);
-    expect(wrapper.childAt(2).hasClass('terra-Arrange-fitEnd--bottom')).toEqual(true);
+    expect(wrapper.childAt(0).prop('className')).toEqual('fit-stretch');
+    expect(wrapper.childAt(1).prop('className')).toEqual('fill-stretch');
+    expect(wrapper.childAt(2).prop('className')).toEqual('fit-bottom');
   });
 
   it('should have child with the correct class when align is set to stretch', () => {
     const arrange = <Arrange fitStart={fitStart} fitEnd={fitEnd} fill={fill} align="stretch" />;
     const wrapper = shallow(arrange);
     expect(wrapper.type()).toEqual('div');
-    expect(wrapper.childAt(0).hasClass('terra-Arrange-fitStart--stretch')).toEqual(true);
-    expect(wrapper.childAt(1).hasClass('terra-Arrange-fill--stretch')).toEqual(true);
-    expect(wrapper.childAt(2).hasClass('terra-Arrange-fitEnd--stretch')).toEqual(true);
+    expect(wrapper.childAt(0).prop('className')).toEqual('fit-stretch');
+    expect(wrapper.childAt(1).prop('className')).toEqual('fill-stretch');
+    expect(wrapper.childAt(2).prop('className')).toEqual('fit-stretch');
   });
 
   it('should have child with the correct class when align is set and overwrites individual fit and fill ', () => {
     const arrange = <Arrange fitStart={fitStart} fitEnd={fitEnd} fill={fill} align="stretch" alignFitStart="center" />;
     const wrapper = shallow(arrange);
     expect(wrapper.type()).toEqual('div');
-    expect(wrapper.childAt(0).hasClass('terra-Arrange-fitStart--stretch')).toEqual(true);
-    expect(wrapper.childAt(1).hasClass('terra-Arrange-fill--stretch')).toEqual(true);
-    expect(wrapper.childAt(2).hasClass('terra-Arrange-fitEnd--stretch')).toEqual(true);
+    expect(wrapper.childAt(0).prop('className')).toEqual('fit-stretch');
+    expect(wrapper.childAt(1).prop('className')).toEqual('fill-stretch');
+    expect(wrapper.childAt(2).prop('className')).toEqual('fit-stretch');
   });
 
   // Custom prop testing

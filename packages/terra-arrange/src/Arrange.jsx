@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import 'terra-base/lib/baseStyles';
-import './Arrange.scss';
+import styles from './Arrange.scss';
+
 
 const alignmentTypes = ['center', 'bottom', 'stretch'];
 
@@ -55,36 +55,22 @@ const Arrange = ({
     alignmentFitStart = alignmentFitEnd = alignmentFill = align;
   }
 
-  const arrangeClassNames = classNames('terra-Arrange', { [`${customProps.className}`]: customProps.className });
-
-  const fitStartClass = classNames([
-    'terra-Arrange-fitStart',
-    { [`terra-Arrange-fitStart--${alignmentFitStart}`]: alignmentFitStart },
-  ]);
-
-  const fitEndClass = classNames([
-    'terra-Arrange-fitEnd',
-    { [`terra-Arrange-fitEnd--${alignmentFitEnd}`]: alignmentFitEnd },
-  ]);
-
-  const fillClass = classNames([
-    'terra-Arrange-fill',
-    { [`terra-Arrange-fill--${alignmentFill}`]: alignmentFill },
-  ]);
-
   if (fitStart === undefined && fitEnd === undefined) {
     throw new Error('At least one of the props: [fitStart, fitEnd] should be supplied.');
   }
 
+  const arrangeClassNames = classNames(styles.arrange,
+    { [`${customProps.className}`]: customProps.className });
+
   return (
-    <div {...customProps} className={arrangeClassNames} >
-      <div className={fitStartClass}>
+    <div {...customProps} className={arrangeClassNames}>
+      <div className={alignmentFitStart ? styles[`fit_${alignmentFitStart}`] : styles.fit}>
         {fitStart}
       </div>
-      <div className={fillClass}>
+      <div className={alignmentFill ? styles[`fill_${alignmentFill}`] : styles.fill}>
         {fill}
       </div>
-      <div className={fitEndClass}>
+      <div className={alignmentFitEnd ? styles[`fit_${alignmentFitEnd}`] : styles.fit}>
         {fitEnd}
       </div>
     </div>
