@@ -4,11 +4,12 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Menu from 'terra-menu';
 import 'terra-base/lib/baseStyles';
+import CollapsibleMenuViewItem from './CollapsibleMenuViewItem';
+import CollapsibleMenuViewItemGroup from './CollapsibleMenuViewItemGroup';
 import './CollapsibleMenuView.scss';
 
 const propTypes = {
   children: PropTypes.node.isRequired,
-  alignment: PropTypes.oneOf(['alignStart', 'alignEnd']),
 };
 
 class CollapsibleMenuView extends React.Component {
@@ -114,6 +115,9 @@ class CollapsibleMenuView extends React.Component {
     );
   }
 }
+
+CollapsibleMenuView.Item = CollapsibleMenuViewItem;
+CollapsibleMenuView.ItemGroup = CollapsibleMenuViewItemGroup;
 
 CollapsibleMenuView.propTypes = propTypes;
 

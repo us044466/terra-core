@@ -149,6 +149,7 @@ class Menu extends React.Component {
         isOpen={isOpen}
         onRequestClose={this.wrapOnRequestClose}
         targetRef={targetRef}
+        isHeaderDisabled
       >
         {this.state.stack[this.state.stack.length - 1]}
       </Popup>

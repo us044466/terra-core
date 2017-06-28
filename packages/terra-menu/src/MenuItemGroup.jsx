@@ -14,6 +14,11 @@ const propTypes = {
    * Menu.Items to be grouped together
   **/
   children: PropTypes.node.isRequired,
+
+  /**
+   * Callback function called when selected index changes
+   **/
+  onChange: PropTypes.func,
 };
 
 const defaultProps = {
@@ -21,7 +26,7 @@ const defaultProps = {
   children: [],
 };
 
-const MenuItemGroup = ({ isSelectable, children, ...customProps }) => {
+const MenuItemGroup = ({ isSelectable, children, onChange, ...customProps }) => {
   const attributes = Object.assign({}, customProps);
   const items = children.map(child => (
     React.cloneElement(child, {
@@ -29,10 +34,17 @@ const MenuItemGroup = ({ isSelectable, children, ...customProps }) => {
     })
   ));
 
+  const listOnChange = (event, selectedIndex) => {
+    if (onChange) {
+      onChange(selectedIndex);
+    }
+  };
+
   return (
     <SingleSelectList.Item
       {...attributes}
       isSelectable={false}
+      onChange={listOnChange}
       content={(
         <SingleSelectList>
           {items}

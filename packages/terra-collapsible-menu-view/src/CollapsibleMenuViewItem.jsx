@@ -26,51 +26,90 @@ const propTypes = {
   isSelected: PropTypes.bool,
 
   /**
-   * Indicates if the item should be selectable
-  **/
-  isSelectable: PropTypes.bool,
+   * Private.
+   */
+  isButtonStyle: PropTypes.bool,
 
   /**
    * List of Menu.Items to display in a submenu when this item is selected.
    **/
-  subMenuItems: PropTypes.arrayOf(PropTypes.element),
+  menuItems: PropTypes.arrayOf(PropTypes.element),
+};
+
+const contextTypes = {
+  isGroupItem: PropTypes.bool,
 };
 
 const defaultProps = {
   isReversed: false,
+  isButtonStyle: false,
   text: '',
 };
 
-const CollapsibleMenuViewItem = ({
-  icon,
-  isReversed,
-  text,
-  subMenuItems,
-  ...customProps
-}, {
-  isGroupItem,
-  isButtonStyle,
-}) => {
-  const attributes = Object.assign({}, customProps);
-
-  let item;
-
-  if (isButtonStyle && isGroupItem) {
-    item = <ButtonGroup.Button {...attributes} icon={icon} text={text} isReversed isSelected />;
-  } else if (isButtonStyle) {
-    item = (
-      <div className="terra-CollapsibleMenuViewItem">
-        <Button {...attributes} icon={icon} text={text} isReversed={isReversed} />
-      </div>
-    );
-  } else {
-    item = <Menu.Item text={text} isSelected isSelectable subMenuItems={subMenuItems} />;
+class CollapsibleMenuViewItem extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleButtonClick = this.handleButtonClick.bind(this);
+    this.handleRequestClose = this.handleRequestClose.bind(this);
+    this.setButtonNode = this.setButtonNode.bind(this);
+    this.getButtonNode = this.getButtonNode.bind(this);
+    this.state = { open: false };
   }
 
-  return item;
-};
+  setButtonNode(node) {
+    this.buttonNode = node;
+  }
+
+  getButtonNode() {
+    return this.buttonNode;
+  }
+
+  handleButtonClick() {
+    this.setState({ open: true });
+  }
+
+  handleRequestClose() {
+    this.setState({ open: false });
+  }
+
+  render() {
+    const {
+      icon,
+      isReversed,
+      text,
+      isSelected,
+      isButtonStyle,
+      menuItems,
+      ...customProps
+    } = this.props;
+
+    const { isGroupItem } = this.context;
+
+    const attributes = Object.assign({}, customProps);
+
+    let item;
+
+    if (isButtonStyle && isGroupItem) {
+      item = <ButtonGroup.Button {...attributes} icon={icon} text={text} isReversed isSelected />;
+    } else if (isButtonStyle) {
+      item = (
+        <div className="terra-CollapsibleMenuViewItem" ref={this.setButtonNode}>
+          <Menu tergetRef={this.getButtonNode}>
+            {menuItems}
+          </Menu>
+          <Button {...attributes} icon={icon} text={text} isReversed={isReversed} />
+        </div>
+      );
+    } else {
+      item = <Menu.Item text={text} isSelected isSelectable subMenuItems={menuItems} />;
+    }
+
+    return item;
+  }
+}
 
 CollapsibleMenuViewItem.propTypes = propTypes;
 CollapsibleMenuViewItem.defaultProps = defaultProps;
+CollapsibleMenuViewItem.contextTypes = contextTypes;
 
 export default CollapsibleMenuViewItem;
